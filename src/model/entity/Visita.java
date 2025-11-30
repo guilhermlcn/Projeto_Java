@@ -7,7 +7,8 @@ public class Visita {
     private Long id;
     private Long adotanteId;
     private Long animalId;
-    private LocalDate dataVisita;
+    private LocalDate data;
+    private String dia;
 
     public Long getId() {
         return id;
@@ -34,10 +35,27 @@ public class Visita {
     }
 
     public LocalDate getDataVisita() {
-        return dataVisita;
+        return data;
     }
 
     public void setDataVisita(LocalDate dataVisita) {
-        this.dataVisita = dataVisita;
+        this.data = dataVisita;
+    }
+
+    public void setData(LocalDate now) {
+    }
+
+    public void setDescricao(String s) {
+    }
+
+    public void setAnimal(Animal a1) {
+    }
+
+    public String getDia() {
+        return dia;
+    }
+
+    public void setDia(String dia) {
+        this.dia = dia;
     }
 }

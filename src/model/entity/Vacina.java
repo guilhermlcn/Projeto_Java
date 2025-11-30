@@ -6,8 +6,9 @@ public class Vacina {
 
     private Long id;
     private String nome;
-    private LocalDate dataAplicacao;
+    private LocalDate data;
 
+    // GETTERS e SETTERS
     public Long getId() {
         return id;
     }
@@ -24,11 +25,16 @@ public class Vacina {
         this.nome = nome;
     }
 
-    public LocalDate getDataAplicacao() {
-        return dataAplicacao;
+    public LocalDate getData() {
+        return data;
     }
 
-    public void setDataAplicacao(LocalDate dataAplicacao) {
-        this.dataAplicacao = dataAplicacao;
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "Vacina{id=" + id + ", nome='" + nome + "', data=" + data + "}";
     }
 }

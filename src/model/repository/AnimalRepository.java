@@ -1,34 +1,39 @@
 package repository;
 
 import entity.Animal;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class AnimalRepository {
 
     private List<Animal> animais = new ArrayList<>();
-    private Long id = 1L;
+    private Long contadorId = 1L;
+
 
     public Animal salvar(Animal animal) {
-        animal.setId(id++);
+        if (animal.getId() == null) {
+            animal.setId(contadorId++);
+        }
         animais.add(animal);
         return animal;
     }
+
+
+    public Animal buscarPorId(Long id) {
+        return animais.stream()
+                .filter(a -> a.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
+
 
     public List<Animal> listar() {
         return animais;
     }
 
-    public Animal buscarPorId(Long id) {
-        for (Animal animal : animais) {
-            if (animal.getId().equals(id)) {
-                return animal;
-            }
-        }
-        return null;
-    }
 
-    public void remover(Long id) {
-        animais.removeIf(a -> a.getId().equals(id));
+    public boolean deletar(Long id) {
+        return animais.removeIf(a -> a.getId().equals(id));
     }
 }
